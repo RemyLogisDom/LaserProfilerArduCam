@@ -1,0 +1,28 @@
+new : 15/09/2022
+
+get def file :
+
+gendef ArduCamLib.dll
+
+dlltool -d ArduCamLib.def -D ArduCamLib.dll -l ArduCamLib.a
+
+rename ArduCamLib.a to libarducamlib.a
+
+
+
+old :
+
+to get def file :
+	reimp ArduCamLib.lib
+enlever tout le debut avec le underscore
+
+dlltool -U -d ArduCamLib.lib -l ArduCamLib.a
+
+on obtien alors :
+
+ArduCamLib.a
+que le linker peut utiliser
+
+
+
+dlltool -k --output-lib ArduCamLib.a --def ArduCamLib.def
